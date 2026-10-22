@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subjectivity Intersection - The World Begins with Subjectivity Intersection</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;600&display=swap');
+  :root { --bg:#fafaf8; --ink:#111; --accent:#ff4d5a; --accent2:#4d5aff; --paper:#fff; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter','Noto Sans JP',sans-serif;line-height:1.7;overflow-x:hidden}
+  header{padding:48px 24px 24px;text-align:center;position:relative}
+  h1{font-size:clamp(28px,6vw,48px);font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+  .subtitle{opacity:0.7;margin-top:12px;font-size:clamp(14px,2.5vw,18px)}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:99;background:#111;color:#fff;border:none;padding:8px 16px;border-radius:999px;cursor:pointer;font-size:14px}
+  .research-block{max-width:720px;margin:32px auto;background:var(--paper);border:2px solid #111;border-radius:16px;padding:24px;display:flex;gap:20px;align-items:center;box-shadow:6px 6px 0 #111}
+  .research-block a{color:var(--accent2);font-weight:600;word-break:break-all;text-decoration:none;border-bottom:2px solid}
+  .research-qr{width:120px;height:120px;background:#fff;border:1px solid #ddd;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .research-qr img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+  canvas#braid{width:100%;height:220px;display:block;background:linear-gradient(180deg,#fff 0%,#fafaf8 100%)}
+  section{max-width:800px;margin:0 auto;padding:32px 24px}
+  .questions{display:grid;gap:16px;margin-top:24px}
+  .q-card{background:var(--paper);border:1.5px solid #111;border-radius:12px;padding:18px 20px;box-shadow:3px 3px 0 #111}
+  .garden{margin-top:32px;background:#111;color:#fafaf8;border-radius:20px;padding:24px}
+  .garden h2{font-size:22px;margin-bottom:8px}
+  .garden p.hint{opacity:.7;font-size:13px;margin-bottom:16px}
+  .input-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .input-row input{flex:1;min-width:180px;background:#222;color:#fff;border:1px solid #444;border-radius:999px;padding:12px 16px;font-size:15px}
+  .input-row button{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:12px 20px;font-weight:600;cursor:pointer}
+  #entries{display:grid;gap:10px;max-height:420px;overflow:auto}
+  .entry{background:#1e1e1e;border-radius:12px;padding:12px 14px;font-size:14px;display:flex;justify-content:space-between;gap:12px}
+  .entry .tag{font-size:10px;background:#333;padding:2px 8px;border-radius:999px;height:fit-content;opacity:.8}
+  footer{text-align:center;padding:48px 24px;opacity:.5;font-size:12px}
+  .ja{display:none} body.is-ja .en{display:none} body.is-ja .ja{display:block} body.is-ja .ja-inline{display:inline} .en-inline{display:inline} body.is-ja .en-inline{display:none}
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langBtn" onclick="toggleLang()">日本語</button>
+<header>
+  <h1 class="en-inline">The World Begins with Subjectivity Intersection</h1>
+  <h1 class="ja-inline">世界は主観の交差から始まる</h1>
+  <p class="subtitle en">Poster #670 • Satoru • An experiment in shared emergence</p>
+  <p class="subtitle ja">ポスター #670 • 悟 • 共有される創発の実験</p>
+</header>
 
+<div class="research-block">
+  <div class="research-qr">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://doi.org/10.5281/zenodo.23284177" alt="QR">
+  </div>
+  <div>
+    <div style="font-weight:700;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Research Link / 研究リンク</div>
+    <a href="https://doi.org/10.5281/zenodo.23284177" target="_blank">https://doi.org/10.5281/zenodo.23284177</a>
+    <p class="en" style="margin-top:8px;font-size:14px">Paper: <em>The World Begins with Subjectivity Intersection v1.1</em><br>Correspondence: satoru@siel.global</p>
+    <p class="ja" style="margin-top:8px;font-size:14px">論文: <em>世界は主観の交差から始まる v1.1</em><br>連絡先: satoru@siel.global</p>
+  </div>
+</div>
+
+<canvas id="braid"></canvas>
+
+<section>
+  <h2 class="en">5 Questions - Where Our Worlds Meet</h2>
+  <h2 class="ja">5つの問い - 私たちの世界が出会う場所</h2>
+  <div class="questions">
+    <div class="q-card"><span style="font-weight:700;color:#ff4d5a">Q1</span> <span class="en-inline">For you, what color is 6pm?</span><span class="ja-inline">あなたにとって、午後6時は何色ですか？</span></div>
+    <div class="q-card"><span style="font-weight:700;color:#ff4d5a">Q2</span> <span class="en-inline">When does a sound become a word for you?</span><span class="ja-inline">あなたにとって、いつ音が言葉になりますか？</span></div>
+    <div class="q-card"><span style="font-weight:700;color:#ff4d5a">Q3</span> <span class="en-inline">What is a border you carry inside you?</span><span class="ja-inline">あなたが内側に持っている境界線は何ですか？</span></div>
+    <div class="q-card"><span style="font-weight:700;color:#ff4d5a">Q4</span> <span class="en-inline">How do you know you are seen by someone else?</span><span class="ja-inline">他者に見られていると、どうやって分かりますか？</span></div>
+    <div class="q-card"><span style="font-weight:700;color:#ff4d5a">Q5</span> <span class="en-inline">If subjectivity intersects, what emerges between us?</span><span class="ja-inline">主観が交差するとき、私たちの間に何が立ち現れますか？</span></div>
+  </div>
+
+  <div class="garden">
+    <h2 class="en">Live Emergence Garden / Real Shared DB</h2>
+    <h2 class="ja">ライブ創発の庭 / リアル共有DB</h2>
+    <p class="hint en">Write your answer. Everyone in the world sees it instantly. This is Intersection → Emergence.</p>
+    <p class="hint ja">あなたの答えを書いてください。世界中の人に即時表示されます。これが 交差 → 創発 です。</p>
+    <div class="input-row">
+      <input id="subjectInput" placeholder="For me, 6pm is... / 私にとって夕方は..." />
+      <button onclick="addEntry()">Share / 共有</button>
+    </div>
+    <div id="entries"><div style="opacity:.5;font-size:13px">Loading shared field...</div></div>
+  </div>
+</section>
+
+<footer>skiii × Satoru — DOI: 10.5281/zenodo.23284177 — Built for Poster #670</footer>
+
+<script type="module">
+function toggleLang(){ document.body.classList.toggle('is-ja'); document.getElementById('langBtn').textContent = document.body.classList.contains('is-ja') ? 'English' : '日本語'; localStorage.setItem('lang', document.body.classList.contains('is-ja') ? 'ja' : 'en');}
+if(localStorage.getItem('lang')==='ja'){document.body.classList.add('is-ja');document.getElementById('langBtn').textContent='English'} window.toggleLang=toggleLang;
+const canvas=document.getElementById('braid');const ctx=canvas.getContext('2d');function resize(){canvas.width=canvas.clientWidth*2;canvas.height=canvas.clientHeight*2;}resize();window.addEventListener('resize',resize);let t=0;function draw(){t+=0.015;ctx.clearRect(0,0,canvas.width,canvas.height);const W=canvas.width,H=canvas.height,mid=H/2;for(let k=0;k<2;k++){ctx.beginPath();ctx.strokeStyle=k===0?'#ff4d5a':'#4d5aff';ctx.lineWidth=4;for(let x=0;x<W;x+=4){const py=mid+Math.sin(x*0.008+t+k*Math.PI)*60;if(x===0)ctx.moveTo(x,py);else ctx.lineTo(x,py);}ctx.stroke();}requestAnimationFrame(draw);}draw();
+
+const FIREBASE_CONFIG = {
+  apiKey: "DEMO_MODE_NO_KEY",
+  authDomain: "subjectivity-intersection.firebaseapp.com",
+  projectId: "subjectivity-intersection",
+  storageBucket: "subjectivity-intersection.appspot.com",
+  messagingSenderId: "0000000000",
+  appId: "1:0000000000:web:demo"
+};
+let db=null, isDemo=FIREBASE_CONFIG.apiKey==="DEMO_MODE_NO_KEY";
+async function initDB(){
+  if(isDemo){const demoData=JSON.parse(localStorage.getItem('emergence_demo')||'[]');renderEntries(demoData);return;}
+  const {initializeApp}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
+  const {getFirestore,collection,addDoc,onSnapshot,query,orderBy,serverTimestamp}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+  const app=initializeApp(FIREBASE_CONFIG);db=getFirestore(app);window._fb={collection,addDoc,onSnapshot,query,orderBy,serverTimestamp};
+  const q=query(collection(db,'emergences'),orderBy('createdAt','desc'));
+  onSnapshot(q,(snap)=>{const arr=[];snap.forEach(d=>arr.push({id:d.id,...d.data()}));renderEntries(arr);});
+}initDB();
+function detectLangTag(text){return /[\u3040-\u30ff\u4e00-\u9faf]/.test(text)?'ja':'en';}
+async function addEntry(){const input=document.getElementById('subjectInput');const text=input.value.trim();if(!text)return;const langTag=detectLangTag(text);const entry={text,lang:langTag,createdAt:new Date().toISOString(),place:Intl.DateTimeFormat().resolvedOptions().timeZone};if(isDemo){const arr=JSON.parse(localStorage.getItem('emergence_demo')||'[]');arr.unshift(entry);localStorage.setItem('emergence_demo',JSON.stringify(arr.slice(0,100)));renderEntries(arr);}else{const {collection,addDoc,serverTimestamp}=window._fb;await addDoc(collection(db,'emergences'),{...entry,createdAt:serverTimestamp()});}input.value='';}
+window.addEntry=addEntry;document.getElementById('subjectInput').addEventListener('keydown',e=>{if(e.key==='Enter')addEntry();});
+function renderEntries(list){const el=document.getElementById('entries');if(!list.length){el.innerHTML='<div style="opacity:.5">No emergence yet. Be first.</div>';return;}el.innerHTML=list.map(e=>{const time=e.createdAt?.toDate?e.createdAt.toDate().toLocaleString():(e.createdAt||'').toString().slice(0,16);return `<div class="entry"><span>${escapeHtml(e.text)}</span><span style="display:flex;gap:6px;align-items:center"><span class="tag">[${e.lang||'en'}]</span><span style="font-size:10px;opacity:.5">${time}</span></span></div>`;}).join('');}
+function escapeHtml(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+</script>
+</body>
+</html>
